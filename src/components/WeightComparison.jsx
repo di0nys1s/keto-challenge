@@ -13,7 +13,7 @@ const WeightComparison = () => {
     <Segment style={challengerFormStyle}>
       <form className="ui form segment">
         <h2 style={{ textAlign: "center" }} className="meal-order-form">
-          Weight Comparison
+          Weight Comparisons
         </h2>
         <div style={{ margin: "0.1rem 0" }} class="ui vertically divided grid">
           <div class="two column row">
