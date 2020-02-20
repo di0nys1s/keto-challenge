@@ -1,6 +1,6 @@
 import React from "react";
 import challengerFormStyle from "../static/style";
-import { Dropdown, Segment, TextArea } from "semantic-ui-react";
+import { Dropdown, Segment } from "semantic-ui-react";
 
 const genderOptions = [
   { key: "M", value: "MA", text: "Male" },
