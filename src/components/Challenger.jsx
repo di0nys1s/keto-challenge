@@ -1,5 +1,5 @@
 import React from "react";
-import WeightComparison from "./WeightComparison";
+import challengerFormStyle from "../static/style";
 import { Dropdown, Segment, TextArea } from "semantic-ui-react";
 
 const genderOptions = [
@@ -7,13 +7,6 @@ const genderOptions = [
   { key: "F", value: "FE", text: "Female" },
   { key: "L", value: "LGBT", text: "L.G.B.T.Q.I.A.+" }
 ];
-
-const challengerFormStyle = {
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  justifyContent: "center"
-};
 
 const Challenger = () => {
   return (
@@ -66,46 +59,40 @@ const Challenger = () => {
           </div>
 
           <div className="field">
-            <label className="ui red ribbon label">
-              Special Dietary / Medical Condition
-            </label>
-            <TextArea placeholder="Please specify if you have any special dietary and / or medical conditions" />
+            <label>Special Dietary / Medical Condition</label>
+            <input
+              type="text"
+              placeholder="Please specify if you have any special dietary and / or medical conditions"
+            />
           </div>
           <div className="field">
-            <label className="ui orange ribbon label">Food Allergy</label>
-            <TextArea placeholder="Please tell us if you are allergic to any kind of food" />
+            <label>Food Allergy</label>
+            <input
+              type="text"
+              placeholder="Please tell us if you are allergic to any kind of food"
+            />
           </div>
           <div className="inline field">
             <div className="ui checkbox">
               <input type="checkbox" name="terms" />
-              <label>I agree to the terms and conditions</label>
+              <label>
+                I agree to the{" "}
+                <a
+                  href="https://www.herbsandbeans.com/wlc/"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  terms and conditions
+                </a>
+              </label>
             </div>
           </div>
-          <div className="ui primary submit button">Submit</div>
+          <div
+            style={{ margin: "1% 40%" }}
+            className="ui primary submit button">
+            Submit
+          </div>
         </form>
       </Segment>
-
-      <Segment>
-        <WeightComparison />
-      </Segment>
-
-      {/*<Segment>
-          <List celled order>
-            <Header as="h1" color="olive">
-              Meal List
-            </Header>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-            <List.Item>1. Grilled Chicken with Green Salad</List.Item>
-          </List>
-        </Segment>*/}
     </React.Fragment>
   );
 };
