@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import challengerFormStyle from "../static/style";
 import { Dropdown, Segment } from "semantic-ui-react";
 
@@ -9,10 +9,25 @@ const genderOptions = [
 ];
 
 const Challenger = () => {
+  const [isMouseOver, setMouseOver] = useState(false);
+
+  function btnMouseOver() {
+    setMouseOver(true);
+  }
+
+  function btnMouseOut() {
+    setMouseOver(false);
+  }
+
+  function handleClick(event) {
+    event.preventDefault();
+    console.log("Clicked");
+  }
+
   return (
     <React.Fragment>
       <Segment style={challengerFormStyle}>
-        <form className="ui form segment">
+        <form onSubmit={handleClick} className="ui form segment">
           <h2 style={{ textAlign: "center" }} className="meal-order-form">
             Meal Plan Order Form
           </h2>
@@ -23,15 +38,15 @@ const Challenger = () => {
           <div className="three fields">
             <div className="field">
               <label>First name</label>
-              <input type="text" placeholder="First Name" />
+              <input name="fName" type="text" placeholder="First Name" />
             </div>
             <div className="field">
               <label>Middle name</label>
-              <input type="text" placeholder="Middle Name" />
+              <input name="mName" type="text" placeholder="Middle Name" />
             </div>
             <div className="field">
               <label>Last name</label>
-              <input type="text" placeholder="Last Name" />
+              <input name="lName" type="text" placeholder="Last Name" />
             </div>
           </div>
           <div className="two fields">
@@ -48,20 +63,25 @@ const Challenger = () => {
             <div className="field">
               <label>Phone Number</label>
               <div className="field">
-                <input type="text" placeholder="(xxx)" />
+                <input type="text" name="mobile" placeholder="(xxx)" />
               </div>
             </div>
           </div>
 
           <div className="field">
             <label>E-mail</label>
-            <input type="email" placeholder="Please type your email" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Please type your email"
+            />
           </div>
 
           <div className="field">
             <label>Special Dietary / Medical Condition</label>
             <input
               type="text"
+              name="dietary"
               placeholder="Please specify if you have any special dietary and / or medical conditions"
             />
           </div>
@@ -69,6 +89,7 @@ const Challenger = () => {
             <label>Food Allergy</label>
             <input
               type="text"
+              name="allergy"
               placeholder="Please tell us if you are allergic to any kind of food"
             />
           </div>
@@ -76,7 +97,7 @@ const Challenger = () => {
             <div className="ui checkbox">
               <input type="checkbox" name="terms" />
               <label>
-                I agree to the{" "}
+                I agree to the
                 <a
                   href="https://www.herbsandbeans.com/wlc/"
                   rel="noopener noreferrer"
@@ -86,11 +107,17 @@ const Challenger = () => {
               </label>
             </div>
           </div>
-          <div
-            style={{ margin: "1% 40%" }}
-            className="ui primary submit button">
+          <button
+            className="ui primary submit button"
+            type="submit"
+            name="submit"
+            onMouseOver={btnMouseOver}
+            onMouseOut={btnMouseOut}
+            style={{
+              backgroundColor: isMouseOver ? "green" : ""
+            }}>
             Submit
-          </div>
+          </button>
         </form>
       </Segment>
     </React.Fragment>
